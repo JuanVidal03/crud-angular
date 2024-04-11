@@ -1,0 +1,39 @@
+<div class="modal-container">
+    <!-- cinfirmacion cuando elimina el item -->
+    <lib-toastify-toast-container
+    [position]="'top-right'"
+    [iconLibrary]="'font-awesome'"
+    />
+    <div class="modal">
+        <i (click)="closeModal()" class="fa-solid fa-circle-xmark close-btn"></i>
+        <h4>Ingresar Producto!</h4>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-modal">
+            <input
+                class="input-hidden"
+                formControlName="id"
+                type="number"
+                placeholder="Ingresa el id del producto">
+            <input
+                required
+                formControlName="title"
+                type="text"
+                placeholder="Ingresa el nombre del producto">
+            <input
+                required
+                formControlName="description"
+                type="text"
+                placeholder="Ingresa la descripcion del producto">
+            <input
+                required
+                formControlName="price"
+                type="number"
+                placeholder="Ingresa el precio del producto">
+            <input
+                required
+                formControlName="stock"
+                type="number"
+                placeholder="Ingresa el stock del producto">
+            <input (submit)="onSubmit()" class="form-btn" type="submit" value="Enviar">
+        </form>
+    </div>
+</div>

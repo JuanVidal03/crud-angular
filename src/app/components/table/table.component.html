@@ -1,0 +1,55 @@
+<div class="title-container">
+    <h1 class="title">Todos los productos!</h1>
+</div>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Titulo</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Fecha Creacion</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let producto of productos; index as i">
+                <td>{{ producto.id }}</td>
+                <td>{{ producto.title }}</td>
+                <td>{{ producto.description }}</td>
+                <td>{{ producto.price | currency:'COP':'symbol-narrow': '4.2-2' }}</td>
+                <td>{{ producto.stock }}</td>
+                <td>{{ producto.created_at | date:'fullDate' }}</td>
+                <td class="actions-icons">
+                    <i (click)="sendProductToUpdate(producto)" class="fa-solid fa-pen-to-square"></i>
+                    <i (click)="deleteProduct(producto.id, i)" class="fa-solid fa-trash"></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<!-- manejo del modal -->
+<div *ngIf="modalSwitch == true">
+    <app-modal
+    (addProduct)="addProducts($event)"
+    (updateProduct)="updateProduct($event)"
+    [productoAActualizar]="productoToUpdate"/>
+</div>
+
+
+<!-- confirmacion cuando se elimina un producto -->
+<lib-toastify-toast-container
+    [position]="'top-right'"
+    [iconLibrary]="'font-awesome'"
+/>
+
+<!-- boton para agregar productos -->
+<div class="btn-container">
+    <a (click)="openModal()" class="btn">Agregar Producto</a>
+</div>
+

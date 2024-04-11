@@ -1,0 +1,66 @@
+.modal-container{
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000089;
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.modal{
+    width: 350px;
+    height: 410px;
+    background-color: #1e1e1e;
+    padding: 4rem 2rem;
+    border-radius: 10px;
+    position: relative;   
+}
+.modal h4{
+    color: #fff;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.form-modal{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+.form-modal input{
+    width: 100%;
+    padding: .7rem;
+    transition: all ease .3s;
+}
+.form-modal input:focus{
+    outline: none;
+}
+.form-btn{
+    background-color: red;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 1rem;
+    padding: 1rem 0 !important;
+    font-size: 1rem;
+}
+.form-btn:hover{
+    box-shadow: 0px 0px 10px rgb(255, 0, 0);
+}
+.close-btn{
+    position: absolute;
+    color: red;
+    top: 5%;
+    right: 7%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all ease .3s;
+}
+.input-hidden{
+    display: none;
+}
